@@ -1,0 +1,232 @@
+:root {
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 16px;
+    --space-l: 32px;
+    --main-color: rgba(42, 54, 71, 1);
+    --main-color-hover: rgba(41, 171, 226, 1);
+    --main-hover-secondary: #a8a8a89c;
+    --main-background: white;
+    --yelow-priority: #FFA800;
+    --font-l: clamp(1.00rem, calc(0.438rem + 2.813vw), 3.81rem);
+    --font-m: clamp(1.00rem, calc(0.950rem + 0.250vw), 1.25rem);
+    --icon-w-xl: 42px;
+    --icon-h-xl: 42px;
+    --icon-w-l: 32px;
+    --icon-h-l: 32px;
+    --icon-w-m: 24px;
+    --icon-h-m: 24px;
+    --icon-w-s: 20px;
+    --icon-h-s: 14.51px;
+}
+
+.open-category {
+    overflow: auto !important;
+    height: 72px;
+    max-height: 160px !important;
+    border: 1px solid #ccc;
+    opacity: 1 !important;
+}
+
+.option.selected {
+    background-color: var(--main-color);
+    color: var(--main-background);
+}
+
+.selected {
+    background-color: var(--main-color);
+    color: var(--main-background);
+}
+
+.flt-profile {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-l);
+    width: 200px;
+}
+
+.flt-badge {
+    width: var(--icon-w-xl);
+    height: var(--icon-h-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000ff8a;
+    border-radius: 50%;
+}
+
+.flt-contaact-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+
+.flt-add-task-assign-output-box {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+}
+
+.priority-set {
+    background-color: var(--yelow-priority);
+    color: var(--main-background)
+}
+
+.path-priority-set {
+    fill: var(--main-background)
+}
+
+.add-subtask-img {
+    color: black;
+    fill: black;
+    border-radius: 50%;
+    padding: var(--space-xs);
+}
+
+.add-subtask-img:hover {
+    cursor: pointer;
+    background-color: var(--main-hover-secondary);
+
+}
+
+.flt-add-tsk-title-subtask-box {
+    width: 96%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    border-radius: var(--space-s);
+    padding: var(--space-xs);
+    border: 2px solid var(--main-hover-secondary);
+}
+
+.flt-subtask-add {
+    font-size: var(--font-m);
+    width: 90%;
+}
+
+.flt-subtask-add {
+    cursor: pointer;
+}
+
+.subtask-icon-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    gap: var(--space-s);
+}
+
+.added-subtask-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 96%;
+    padding: var(--space-xs);
+    border-radius: var(--space-s);
+    transition: all 100ms ease-in-out;
+}
+
+.added-subtask-list:hover {
+    cursor: pointer;
+    background-color: var(--main-hover-secondary);
+}
+
+.added-subtask-function {
+    display: none;
+    flex-direction: row;
+    gap: var(--space-s);
+}
+
+.added-subtask {
+    width: 80%;
+}
+
+.added-subtask-function-active {
+    display: flex;
+}
+
+#subtask-function-edit:hover path {
+    fill: var(--main-color-hover);
+}
+
+#subtask-function-delete:hover path {
+    fill: var(--main-color-hover);
+}
+
+.flt-add-tsk-output-subtask {
+    display: flex;
+    flex-direction: column;
+}
+
+#cancel-add-task {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xs);
+    align-items: center;
+    height:16%;
+    width: max-content;
+    padding: var(--space-m);
+    border-radius: var(--space-m);
+    border: 2px solid var(--main-hover-secondary);
+    justify-content: center;
+    transition: all 100ms ease-in-out;
+}
+
+#cancel-add-task:hover{
+    cursor: pointer;
+    color: var(--main-color-hover);
+}
+
+.cancel-add-task-img path{
+    transition: all 100ms ease-in-out;
+}
+
+#cancel-add-task:hover  .cancel-add-task-img path{
+    fill: var(--main-color-hover);
+}
+
+.cancel-add-task-teks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-add-task-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#create-add-task {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xs);
+    align-items: center;
+    height:16%;
+    width: max-content;
+    padding: var(--space-m);
+    border-radius: var(--space-m);
+    border: 0px solid var(--main-hover-secondary);
+    justify-content: center;
+    transition: all 100ms ease-in-out;
+    background-color: var(--main-color);
+    color: var(--main-background);
+}
+
+#create-add-task:hover{
+    cursor: pointer;
+    background-color: var(--main-color-hover);
+}
+
+.edit-subtask-input{
+    width: 80%;
+    font-size: 1rem;
+    font-family: inherit;
+}

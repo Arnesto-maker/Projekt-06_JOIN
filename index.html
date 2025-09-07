@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="/style/board.css">
+    <link rel="stylesheet" href="assets/font.css">
+    <link rel="stylesheet" href="/style/floating-add-task.css">
+    <link rel="stylesheet" href="/style/floating-add-task-css-2.css">
+    <link rel="stylesheet" href="style/flt-edit-task.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="menu-bar">
+            <div class="menu-bar-1">
+                <img src="assets/icon-img/join-main-logo.png" alt="" class="join-logo">
+                <div class="menu">
+                    <div class="menu-points" id="summary">
+                        <img src="assets/icon-img/summary.svg" alt="">
+                        <p>Summary</p>
+                    </div>
+                    <div class="menu-points" id="board">
+                        <img src="assets/icon-img/board.svg" alt="">
+                        <p>Board</p>
+                    </div>
+                    <div class="menu-points" id="addTask">
+                        <img src="assets/icon-img/addTask.svg" alt="">
+                        <p>Add Task</p>
+                    </div>
+                    <div class="menu-points" id="contacts">
+                        <img src="assets/icon-img/perm_contact_calendar.svg" alt="">
+                        <p>Contacts</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu-bar-2">
+                <div>Privacy Policy</div>
+                <div>Legal notice</div>
+            </div>
+        </div>
+        <div class="main-content-body">
+            <div class="content-header">
+                <h1>Kanban Project Management Tool</h1>
+                <div class="user-help-section">
+                    <img src="assets/icon-img/help.svg" alt="">
+                    <div class="user-icon">SM</div>
+                </div>
+            </div>
+            <div class="content-body board-content">
+                <div class="board-header">
+                    <div class="board-header-content">
+                        <div class="board-header-text">
+                            <b class="fs-61-700">Board</b>
+                        </div>
+                        <div class="board-functions">
+                            <div class="findtask">
+                                <div class="find-task input">
+                                    <input type="text" id="search" placeholder="search">
+                                </div>
+                                <div class="separator-box"></div>
+                                <div class="find-task-icon"><img src="assets/icon-img/search.svg" alt=""></div>
+                            </div>
+                            <div class="addTask-button" onclick="showFloatingAddTask()">
+                                <div class="add-task-text"><b class="fs-21-700">Add Task</b></div>
+                                <div class="add-task-plus"><img src="assets/icon-img/add.svg" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="board-body-parent-box">
+                    <div class="board-body">
+                        <div class="column">
+                            <div class="column-title">
+                                <b>To do</b>
+                                <img src="assets/icon-img/plus button.svg" alt="">
+                            </div>
+                            <div class="column-content" id="toDo">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">
+                                <b>In Progress</b>
+                                <img src="assets/icon-img/plus button.svg" alt="">
+                            </div>
+                            <div class="column-content" id="inProgress">
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">
+                                <b>Await feedback</b>
+                                <img src="assets/icon-img/plus button.svg" alt="">
+                            </div>
+                            <div class="column-content" id="awaitFeedback">
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">
+                                <b>Done</b>
+                                <img src="assets/icon-img/plus button.svg" alt="">
+                            </div>
+                            <div class="column-content" id="done">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" style="display: flex;">
+            <div id="overlay-content"  >
+                <div class="detailed-task-edit">
+                    <div class="detailed-task-edit-header">
+                        <div class="edit-close-icon-box" onclick="closeOverlay()">
+                            <img src="assets/icon-img/Close.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="detailed-task-edit-body">
+
+                        <div class="flt-title-edit-parent">
+                            <div class="flt-title-edit-text">
+                                <p>Title</p>
+                            </div>
+                            <div class="flt-title-edit-input-field">
+                                <input type="text" name="edit-title-field" id="edit-title">
+                            </div>
+                        </div>
+
+
+                        <div class="flt-desc-edit-parent">
+                            <div class="flt-desc-edit-text">
+                                <p>Description</p>
+                            </div>
+                            <div class="flt-desc-edit-input-field">
+                                <textarea name="desc-edit" id="edit-desc"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="flt-due-Date-edit-parent">
+                            <div class="flt-due-Date-edit-text">
+                                <p>Due date</p>
+                            </div>
+                            <div class="flt-due-Date-edit-input-field">
+                                <input type="date" name="edit-due-Date-field" id="edit-due-Date">
+                            </div>
+                        </div>
+
+                        <div class="flt-priority-edit-parent">
+                            <div class="flt-priority-edit-text">
+                                <b>Priority</b>
+                            </div>
+                            <div class="flt-priority-edit-child">
+                                <div class="flt-priority-edit-urgent floating-priority" data-priority="urgent">
+                                    <div class="flt-priority-edit-urgent-text">Urgent</div>
+                                    <div class="flt-prio-icon">
+                                        <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="urgent-icon">
+                                            <path
+                                                d="M9.00026 4.75488C9.19969 4.75455 9.39397 4.81645 9.55451 4.93149L17.123 10.3655C17.2215 10.4362 17.3046 10.5251 17.3678 10.6272C17.4309 10.7292 17.4727 10.8423 17.4909 10.96C17.5276 11.1978 17.4656 11.44 17.3186 11.6334C17.1716 11.8267 16.9516 11.9554 16.7071 11.9911C16.4625 12.0267 16.2134 11.9665 16.0145 11.8236L9.00026 6.79262L1.98602 11.8236C1.88754 11.8943 1.7757 11.9455 1.65687 11.9743C1.53803 12.003 1.41455 12.0087 1.29345 11.9911C1.17235 11.9734 1.05602 11.9327 0.951088 11.8714C0.846159 11.81 0.754691 11.7291 0.681906 11.6334C0.609122 11.5376 0.556445 11.4289 0.526885 11.3134C0.497325 11.1978 0.491459 11.0778 0.509623 10.96C0.527789 10.8423 0.569626 10.7292 0.632752 10.6272C0.695876 10.5251 0.779049 10.4362 0.877524 10.3654L8.44602 4.93149C8.60656 4.81645 8.80083 4.75455 9.00026 4.75488Z"
+                                                fill="#FF3D00" />
+                                            <path
+                                                d="M9.00002 8.0474e-07C9.19945 -0.000333441 9.39372 0.0615695 9.55427 0.176604L17.1228 5.61057C17.3216 5.75348 17.454 5.96736 17.4907 6.20514C17.5273 6.44292 17.4654 6.68513 17.3184 6.87849C17.1714 7.07185 16.9514 7.20051 16.7068 7.23618C16.4623 7.27185 16.2131 7.2116 16.0143 7.06868L9.00002 2.03774L1.98577 7.06868C1.78689 7.2116 1.53777 7.27185 1.2932 7.23618C1.04863 7.20051 0.828657 7.07185 0.681662 6.87849C0.534667 6.68513 0.472695 6.44292 0.509379 6.20514C0.546065 5.96736 0.678402 5.75348 0.87728 5.61057L8.44577 0.176604C8.60631 0.0615695 8.80059 -0.000333475 9.00002 8.0474e-07Z"
+                                                fill="#FF3D00" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flt-priority-edit-medium floating-priority" data-priority="medium">
+                                    <div class="flt-priority-edit-medium-text">Medium</div>
+                                    <div class="flt-prio-icon">
+                                        <svg viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="medium-icon">
+                                            <path
+                                                d="M16.5685 7.1667L1.43151 7.1667C1.18446 7.1667 0.947523 7.06785 0.772832 6.89189C0.598141 6.71593 0.5 6.47728 0.5 6.22843C0.5 5.97959 0.598141 5.74093 0.772832 5.56497C0.947523 5.38901 1.18446 5.29016 1.43151 5.29016L16.5685 5.29016C16.8155 5.29016 17.0525 5.38901 17.2272 5.56497C17.4019 5.74093 17.5 5.97959 17.5 6.22843C17.5 6.47728 17.4019 6.71593 17.2272 6.89189C17.0525 7.06785 16.8155 7.1667 16.5685 7.1667Z"
+                                                fill="#FFA800" />
+                                            <path
+                                                d="M16.5685 2.70992L1.43151 2.70992C1.18446 2.70992 0.947523 2.61106 0.772832 2.4351C0.598141 2.25914 0.5 2.02049 0.5 1.77165C0.5 1.5228 0.598141 1.28415 0.772832 1.10819C0.947523 0.932227 1.18446 0.833374 1.43151 0.833374L16.5685 0.833374C16.8155 0.833374 17.0525 0.932227 17.2272 1.10819C17.4019 1.28415 17.5 1.5228 17.5 1.77165C17.5 2.02049 17.4019 2.25914 17.2272 2.4351C17.0525 2.61106 16.8155 2.70992 16.5685 2.70992Z"
+                                                fill="#FFA800" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flt-priority-edit-low floating-priority" data-priority="low">
+                                    <div class="flt-priority-edit-medium-text">Low</div>
+                                    <div class="flt-prio-icon">
+                                        <svg viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class="low-icon">
+                                            <path
+                                                d="M8.99974 7.24512C8.80031 7.24545 8.60603 7.18355 8.44549 7.06851L0.876998 1.63455C0.778524 1.56378 0.695351 1.47485 0.632227 1.37284C0.569103 1.27082 0.527264 1.15771 0.5091 1.03998C0.472414 0.802195 0.534386 0.559983 0.681381 0.366625C0.828377 0.173268 1.04835 0.0446026 1.29292 0.00893536C1.53749 -0.0267319 1.78661 0.0335201 1.98549 0.176437L8.99974 5.20738L16.014 0.176438C16.1125 0.105672 16.2243 0.0544579 16.3431 0.0257179C16.462 -0.00302201 16.5855 -0.00872444 16.7066 0.00893622C16.8277 0.0265969 16.944 0.0672747 17.0489 0.128647C17.1538 0.19002 17.2453 0.270885 17.3181 0.366626C17.3909 0.462367 17.4436 0.571109 17.4731 0.686643C17.5027 0.802177 17.5085 0.92224 17.4904 1.03998C17.4722 1.15772 17.4304 1.27082 17.3672 1.37284C17.3041 1.47486 17.221 1.56379 17.1225 1.63455L9.55398 7.06851C9.39344 7.18355 9.19917 7.24545 8.99974 7.24512Z"
+                                                fill="#7AE229" />
+                                            <path
+                                                d="M8.99998 12C8.80055 12.0003 8.60628 11.9384 8.44574 11.8234L0.877242 6.38943C0.678366 6.24652 0.546029 6.03264 0.509344 5.79486C0.472658 5.55708 0.53463 5.31487 0.681625 5.12151C0.828621 4.92815 1.0486 4.79949 1.29317 4.76382C1.53773 4.72815 1.78686 4.7884 1.98574 4.93132L8.99998 9.96226L16.0142 4.93132C16.2131 4.7884 16.4622 4.72815 16.7068 4.76382C16.9514 4.79949 17.1713 4.92815 17.3183 5.12151C17.4653 5.31487 17.5273 5.55708 17.4906 5.79486C17.4539 6.03264 17.3216 6.24652 17.1227 6.38943L9.55423 11.8234C9.39369 11.9384 9.19941 12.0003 8.99998 12Z"
+                                                fill="#7AE229" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="flt-assignTo-edit-parent">
+                            <div class="flt-assignTo-edit-text">
+                                <p>Assigned to</p>
+                            </div>
+                            <div class="flt-assignTo-edit-child-1">
+                                <input type="text" name="flt-edit-assignTo" id="flt-edit-assignTo" placeholder="Select Contact to assign To">
+                                <div class="arrow-icon-box" id="arrow-icon-box">
+                                    <img src="assets/icon-img/arrow_drop_down.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="assign-panel" id='assignPanel'> </div>
+                            <div class="flt-edit-task-assign-output-box" id="flt-edit-task-assign-output-box"></div>
+                        </div>
+
+                        <div class="flt-subtask-edit-parent">
+                            <div class="flt-assignTo-edit-text">
+                                <p>Subtask</p>
+                            </div>
+                            <div class="flt-subtask-edit-child-1">
+                                <input type="text" name="flt-edit-subtasks" id="flt-edit-subtasks" placeholder="Add new Subtask">
+                                <div class="subtask-icon-box" id="subtask-icon-box">
+                                    <img src="assets/icon-img/add (1).svg" alt="" class="add-subtask-img"
+                                        id='plus-add-subtask' on>
+                                </div>
+                                <div class="flt-add-tsk-output-subtask" id="flt-add-tsk-output-subtask"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="detailed-task-edit-footer">
+                        <div class="ok-button">
+                            <div class="ok-button-text">Ok</div>
+                            <img src="assets/icon-img/check.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</body>
+<script src="board.js"></script>
+<script src="script/drag-and-drop-mechanic.js"></script>
+<script src="script/board-template.js"></script>
+<script src="script/board-template-2.js"></script>
+<script src="script/database.js"></script>
+<script src="script/contact-animation.js"></script>
+<script src="script/href-target.js"></script>
+<script src="board2.js"></script>
+<script src="board3.js"></script>
+<script src="board4.js"></script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="assets/font.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="menu-bar">
+            <div class="menu-bar-1">
+                <img src="assets/icon-img/join-main-logo.png" alt="" class="join-logo">
+                <div class="menu">
+                    <div class="menu-points" id="summary">
+                        <img src="assets/icon-img/summary.svg" alt="">
+                        <p>Summary</p>
+                    </div>
+                    <div class="menu-points" id="board">
+                        <img src="assets/icon-img/board.svg" alt="">
+                        <p>Board</p>
+                    </div>
+                    <div class="menu-points" id="addTask">
+                        <img src="assets/icon-img/addTask.svg" alt="">
+                        <p>Add Task</p>
+                    </div>
+                    <div class="menu-points" id="contacts">
+                        <img src="assets/icon-img/perm_contact_calendar.svg" alt="">
+                        <p>Contacts</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu-bar-2">
+                <div>Privacy Policy</div>
+                <div>Legal notice</div>
+            </div>
+        </div>
+        <div class="main-content-body">
+            <div class="content-header">
+                <h1>Kanban Project Management Tool</h1>
+                <div class="user-help-section">
+                    <img src="assets/icon-img/help.svg" alt="">
+                    <div class="user-icon">SM</div>
+                </div>
+            </div>
+            <div class="content-body">
+                <div class="contact-body-list">
+                    <div class="add-new-contact-button" id="addNewContact"
+                        onclick="overlayShow(),getAddOverlayContent(targetID='overlay-content')">
+                        <b>Add new Contact</b>
+                        <img src="assets/icon-img/person_add.svg" alt="">
+                    </div>
+                    <div id="contactList" class="contact-list"></div>
+                </div>
+                <div class="contact-body-detail">
+                    <div class="detail-header">
+                        <div class="header-title">Contacts</div>
+                        <div class="separator-box"></div>
+                        <div class="header-sub-title">Better with a Team</div>
+                    </div>
+                    <div class="detail-body" id="detailBody"></div>
+                    <div class="add-contact-success-box" id="add-contact-success-box">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="overlay-content" id="overlay-content">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+<script src="script/contact-template.js"></script>
+<script src="script/database.js"></script>
+<script src="script/contact-animation.js"></script>
+<script src="script/href-target.js"></script>
+
+</html>
