@@ -161,3 +161,16 @@ function setCardDetails(tasks, id) {
                 </div>`;
     return template
 }
+function templateEditSubtaskFunc() {
+    let template;
+    template = `<img src="assets/icon-img/close (1).svg" alt="" class="add-subtask-img edit-close-button">
+                    <img src="assets/icon-img/check (1).svg" alt="" class="add-subtask-img edit-check-button">`;
+
+    return template
+}
+
+function templateEditSubtaskReset() {
+    let template;
+    template = `<img src="assets/icon-img/add (1).svg" alt="" class="add-subtask-img" id="plus-add-subtask" >`;
+    return template
+}

@@ -42,22 +42,6 @@ function editSetContactAtAssignTo(contacts, id, selectedTrue) {
     return template
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function setAssignedTo(contacts, id) {
     let template;
     template = `<div class="flt-badge" style="background-color: rgba(${contacts[id].badgeColor[0]},${contacts[id].badgeColor[1]}, ${contacts[id].badgeColor[2]}, 1) ;">${contacts[id].firstLetter}${contacts[id].secondFirstLetter}</div>`;
