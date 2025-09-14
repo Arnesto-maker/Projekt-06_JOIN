@@ -44,6 +44,10 @@ function editSetContactAtAssignTo(contacts, id, selectedTrue) {
 
 function setAssignedTo(contacts, id) {
     let template;
+    if (!contacts[id] || contacts[id] === undefined) {
+        template = ''
+        return template
+    }
     template = `<div class="flt-badge" style="background-color: rgba(${contacts[id].badgeColor[0]},${contacts[id].badgeColor[1]}, ${contacts[id].badgeColor[2]}, 1) ;">${contacts[id].firstLetter}${contacts[id].secondFirstLetter}</div>`;
     return template
 }
@@ -336,7 +340,7 @@ function badgeTemplateSecondary(id, contacts) {
         template = `<div class="badge" style="background-color: rgba(${contacts[id].badgeColor[0]},${contacts[id].badgeColor[1]},${contacts[id].badgeColor[2]}, 1);">
                 ${contacts[id].firstLetter}${contacts[id].secondFirstLetter}
                 </div>`
-    } else{
+    } else {
         template = ''
     }
 

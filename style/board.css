@@ -828,7 +828,7 @@ h1 {
     padding: 4px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-m);
 }
 
 .detailed-task-edit-body {

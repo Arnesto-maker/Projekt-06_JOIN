@@ -126,6 +126,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 96%;
     padding: var(--space-xs);
     border-radius: var(--space-s);
@@ -145,6 +146,8 @@
 
 .added-subtask {
     width: 80%;
+    height: max-content;
+    padding: var(--space-xs);
 }
 
 .added-subtask-function-active {
@@ -158,10 +161,17 @@
 #subtask-function-delete:hover path {
     fill: var(--main-color-hover);
 }
+.flt-subtask-edit-parent{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
 
 .flt-add-tsk-output-subtask {
     display: flex;
     flex-direction: column;
+    font-size: 14px;
+    gap: 8px;
 }
 
 #cancel-add-task {

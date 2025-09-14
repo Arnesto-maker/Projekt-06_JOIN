@@ -93,27 +93,23 @@ async function toggleCompleted(taskId, index) {
 }
 
 function eventHandlingFltEditTaskPrio() {
-    const floatingPriorityEditContainer = document.querySelectorAll('.floating-priority');
-    floatingPriorityEditContainer.forEach((member) => {
-        member.addEventListener('click', (event) => {
-            const eventParameter = floatingPriority__init__parameter(event, document)
-            floatingEditPriority(eventParameter.floatingPriority)
-            allPathRemoveMarking(eventParameter.containerMemberParent)
-            toggleFunction(eventParameter.selected, eventParameter.containerMember, eventParameter.containermemberPath)
+    document.querySelectorAll('.floating-priority').forEach(priorityButton => {
+        priorityButton.addEventListener('click', (event) => {
+            const data = event.target.closest('.floating-priority').dataset.priority
+            editPriority[0] = (data)
+            showPriority(editPriority)
         })
     })
     return
 }
 
-function floatingPriority__init__parameter(event, document) {
-    const parameter = {
-        containerMemberParent: event.target.closest('.flt-priority-edit-child'),
-        containerMember: event.target.closest('.floating-priority'),
-        selected: event.target.closest('.floating-priority').classList.contains('flt-edit-selected'),
-        containermemberPath: event.target.closest('.floating-priority').querySelectorAll('path'),
-        floatingPriority: document.querySelectorAll('.floating-priority')
-    }
-    return parameter
+function showPriority(editPriority) {
+    const containerParent = document.querySelectorAll('.floating-priority')
+    const selectedContainer = document.querySelector(`div[data-priority = ${editPriority[0]}]`)
+    floatingEditPriority(containerParent)
+    floatingEditPriorityRemovePathMarking(containerParent)
+    floatingEditPrioritySetNewMarking(selectedContainer)
+    return
 }
 
 function floatingEditPriority(container) {
@@ -123,20 +119,20 @@ function floatingEditPriority(container) {
     return
 }
 
-function allPathRemoveMarking(container) {
-    container.querySelectorAll('path').forEach((path) => {
-        path.classList.remove('path-selected')
+function floatingEditPriorityRemovePathMarking(containerParent) {
+    containerParent.forEach(parent => {
+        parent.querySelectorAll('path').forEach(path => {
+            path.classList.remove('path-selected')
+        });
     })
     return
 }
 
-function toggleFunction(container1, container2, container3) {
-    if (!container1) {
-        container2.classList.add('flt-edit-selected')
-        container3.forEach((path) => {
-            path.classList.add('path-selected')
-        })
-    }
+function floatingEditPrioritySetNewMarking(selectedContainer) {
+    selectedContainer.classList.add('flt-edit-selected')
+    selectedContainer.querySelectorAll('path').forEach(path => {
+        path.classList.add('path-selected')
+    });
     return
 }
 
