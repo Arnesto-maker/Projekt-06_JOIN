@@ -1,25 +1,41 @@
 function edit(taskId) {
-    document.getElementById('overlay-content').innerHTML = templateEditTask()
-    document.querySelector('.overlay').setAttribute('style', 'display:flex')
+    showEditTask(taskId)
+    setupAllEventhandling(taskId)
+    getAllInputFieldValue(taskId, tasks)
+    getAllArrayValue(taskId, tasks)
+}
 
+function showEditTask(taskId) {
+    document.getElementById('overlay-content').innerHTML = templateEditTask(taskId)
+    document.querySelector('.overlay').setAttribute('style', 'display:flex')
+    return
+}
+
+function setupAllEventhandling(taskId) {
     eventHandlingFltEditTaskPrio(taskId)
     eventHandlingEditAssignTo()
     eventhandlingButtonEditSubtask()
     eventHandlingFocusSubtaskInput()
+    return
+}
 
+function getAllInputFieldValue(taskId, tasks) {
     document.querySelector('#edit-title').value = tasks[taskId].title
     document.querySelector('#edit-desc').value = tasks[taskId].description
-    document.querySelector('#edit-due-Date').value = convertValueTypDate (tasks[taskId].dueDate)
+    document.querySelector('#edit-due-Date').value = convertValueTypDate(tasks[taskId].dueDate)
+    return
+}
 
+function getAllArrayValue(taskId, tasks) {
     editPriority[0] = tasks[taskId].priority
     editAssignTo = tasks[taskId].assignedTo
     subtask = editSubtaskArrayTransformation((tasks[taskId].subtask))
-    
-    showPriority(editPriority)   
+    showPriority(editPriority)
     showEditAssigned()
     editedSubtaskShow(subtask)
-
+    return
 }
+
 
 function editSubtaskArrayTransformation(array) {
     let arrayResult;
@@ -31,10 +47,32 @@ function editSubtaskArrayTransformation(array) {
     return arrayResult
 }
 
-function convertValueTypDate (string){
+function convertValueTypDate(string) {
     const parts = string.split('/')
-    const date = `${parts[2]}-${parts[1]}-${parts[0]}`;    
+    const date = `${parts[2]}-${parts[1]}-${parts[0]}`;
     return date
+}
+
+async function UploadChanges(taskId) {
+        let data = sumAllChanges(tasks,taskId)
+        await putData(path = `/task/${taskId}`, data = data)
+        await refreshArray();
+        closeOverlay()
+    return
+}
+
+function sumAllChanges(tasks,taskId) {
+    const changes = {
+        title: document.querySelector('#edit-title').value,
+        description: document.querySelector('#edit-desc').value,
+        dueDate: document.querySelector('#edit-due-Date').value.split('-').reverse().join('/'),
+        priority: editPriority[0],
+        assignedTo: editAssignTo,
+        subtask: generateSubtask(subtask),
+        status:tasks[taskId].status,
+        category:tasks[taskId].category
+    }
+    return changes
 }
 
 

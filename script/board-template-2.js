@@ -175,7 +175,7 @@ function templateEditSubtaskReset() {
     return template
 }
 
-function templateEditTask() {
+function templateEditTask(taskId) {
     let template;
     template = `    <div class="detailed-task-edit">
                     <div class="detailed-task-edit-header">
@@ -287,7 +287,7 @@ function templateEditTask() {
                         </div>
                     </div>
                     <div class="detailed-task-edit-footer">
-                        <div class="ok-button">
+                        <div class="ok-button" onclick="UploadChanges('${taskId}')">
                             <div class="ok-button-text">Ok</div>
                             <img src="assets/icon-img/check.svg" alt="">
                         </div>

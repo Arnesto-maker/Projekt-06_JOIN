@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     init__dragAndDropEventHandling()
     taskSearchEventHandling()
     svgDragFalse()
-    console.log(tasks);
-    
-
-
 })
 
 

@@ -4,7 +4,7 @@ async function refreshArray() {
     contactArray = arraySorting(filterPlaceHolderArray(objectToArray(contacts)))
     taskArray = filterPlaceHolderArray(objectToArray(tasks))
     const firstBoardArrays = init__boardArrayParameter(taskArray)
-    getWholeBoard(firstBoardArrays.toDoArray, firstBoardArrays.inProgressArray, firstBoardArrays.awaitFeedbackArray, firstBoardArrays.doneArray)
+    getWholeBoard(firstBoardArrays.toDoArray, firstBoardArrays.inProgressArray, firstBoardArrays.awaitFeedbackArray, firstBoardArrays.doneArray)    
     return
 }
 

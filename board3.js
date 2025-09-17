@@ -118,12 +118,10 @@ function init__dragAndDropEventHandling() {
 async function uploadTask() {
     let data = setTaskObjectDefault()
     if (!data) {
-        console.log('please finish your validation');
         return
     }
     resetForm()
     await postData(path = '/task', data = data)
-    console.log('data successfully uploaded');
     await refreshArray()
     closeOverlay()
     return

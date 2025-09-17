@@ -119,7 +119,7 @@ function scrollIntoView(id) {
     if (id) {
         document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center" })
         showContactDetails(id)
-    } else{
+    } else {
         window.location.reload()
     }
 }
@@ -270,9 +270,21 @@ function showCurrentValue(id) {
 }
 
 async function deleteContact(id) {
+    await synchingDataAfterDeletion(id)
     await deleteData(path = ('/contacts/' + `${id}`))
     await refreshContactList()
     await resetContentWithSlide(targetID = 'detailBody')
     return
 }
 
+async function synchingDataAfterDeletion(id) {
+    const tasks = await getObject('/task')
+    const taskArray = filterPlaceHolderArray(objectToArray(tasks))
+    let affectedTasks = taskArray.filter(task => task.assignedTo.includes(id))
+    affectedTasks.forEach(async (task) => {
+        const index = task.assignedTo.indexOf(`${id}`)
+         task.assignedTo.splice(index, 1)
+        await putData(path = `/task/${task.id}`, data = task)
+    })
+    return
+}

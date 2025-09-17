@@ -50,7 +50,7 @@
     font-size: var(--fs-21-700);
 }
 .flt-title-edit-input-field input{
-    font-size: var(--fs-21-700);
+    font-size: 1rem;
 }
 
 .flt-due-Date-edit-input-field {
@@ -109,7 +109,7 @@
     padding: var(--space-xs);
     border-radius: var(--space-s);
     border: 2px solid rgba(0, 0, 0, 0.214);
-    font-size: var(--fs-21-700);
+    font-size: 1rem;
 }
 
 #edit-due-Date {
@@ -131,12 +131,12 @@
 }
 
 #flt-edit-assignTo::placeholder {
-    font-size: var(--fs-21-700);
+    font-size: 1rem;
     color: black;
 }
 
 #flt-edit-subtasks::placeholder {
-    font-size: var(--fs-21-700);
+    font-size: 1rem;
 }
 
 #flt-edit-subtasks {

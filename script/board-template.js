@@ -350,8 +350,8 @@ function badgeTemplateSecondary(id, contacts) {
 
 function setBadgeforCards(tasks, id, target, contacts) {
     document.getElementById(target).innerHTML = ''
-    if (tasks[id].assignedTo === 'unassigned') {
-        document.getElementById(target).innerHTML = tasks[id].assignedTo
+    if (tasks[id].assignedTo === 'unassigned' || !tasks[id].assignedTo) {
+        document.getElementById(target).innerHTML = 'unassigned'
     } else {
         for (let index = 0; index < tasks[id].assignedTo.length; index++) {
             document.getElementById(target).innerHTML += badgeTemplate(tasks[id].assignedTo[index], contacts, index)
@@ -362,8 +362,8 @@ function setBadgeforCards(tasks, id, target, contacts) {
 
 function setBadgeforCardsDetailed(tasks, id, target, contacts) {
     document.getElementById(target).innerHTML = ''
-    if (tasks[id].assignedTo === 'unassigned') {
-        document.getElementById(target).innerHTML = tasks[id].assignedTo
+    if (tasks[id].assignedTo === 'unassigned'|| !tasks[id].assignedTo) {
+        document.getElementById(target).innerHTML = 'unassigned'
     } else {
         for (let index = 0; index < tasks[id].assignedTo.length; index++) {
             document.getElementById(target).innerHTML += badgeTemplateSecondary(tasks[id].assignedTo[index], contacts)
