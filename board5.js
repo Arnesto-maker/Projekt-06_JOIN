@@ -28,7 +28,9 @@ function getAllInputFieldValue(taskId, tasks) {
 
 function getAllArrayValue(taskId, tasks) {
     editPriority[0] = tasks[taskId].priority
-    editAssignTo = tasks[taskId].assignedTo
+    if (tasks[taskId].assignedTo) {
+        editAssignTo = tasks[taskId].assignedTo
+    }
     subtask = editSubtaskArrayTransformation((tasks[taskId].subtask))
     showPriority(editPriority)
     showEditAssigned()
@@ -54,14 +56,25 @@ function convertValueTypDate(string) {
 }
 
 async function UploadChanges(taskId) {
-        let data = sumAllChanges(tasks,taskId)
-        await putData(path = `/task/${taskId}`, data = data)
-        await refreshArray();
-        closeOverlay()
+    let data = sumAllChanges(tasks, taskId)
+    await putData(path = `/task/${taskId}`, data = data)
+    resetEditTaskFunc()
+    await refreshArray();
+    closeOverlay()
     return
 }
 
-function sumAllChanges(tasks,taskId) {
+function resetEditTaskFunc() {
+    let assignTo = []
+    let editAssignTo = [];
+    let editPriority = []
+    let category = []
+    let priority = []
+    let subtask = []
+    return
+}
+
+function sumAllChanges(tasks, taskId) {
     const changes = {
         title: document.querySelector('#edit-title').value,
         description: document.querySelector('#edit-desc').value,
@@ -69,8 +82,8 @@ function sumAllChanges(tasks,taskId) {
         priority: editPriority[0],
         assignedTo: editAssignTo,
         subtask: generateSubtask(subtask),
-        status:tasks[taskId].status,
-        category:tasks[taskId].category
+        status: tasks[taskId].status,
+        category: tasks[taskId].category
     }
     return changes
 }
