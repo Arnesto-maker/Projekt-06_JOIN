@@ -61,9 +61,9 @@ function priorityOrder(array) {
     return sortedArray
 }
 
-function showCardDetails(id) {
+async function showCardDetails(id) {
     document.querySelector('.overlay').setAttribute('style', 'display:flex')
-    document.getElementById('overlay-content').innerHTML = setCardDetails(tasks, id)
+    await switchOverlayContentWithSlide(targetID = 'overlay-content', setCardDetails(tasks, id))
     setBadgeforCardsDetailed(tasks, id, `overlay-assignedToFor${id}`, contacts)
     renderDetailedSubtask(`subtaskFor${id}`, id)
 }

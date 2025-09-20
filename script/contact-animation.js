@@ -1,19 +1,19 @@
 // details contact animation 
 let transformArrayStart = [
     { transform: 'translateX(0)', opacity: 1 },
-    { transform: 'translateX(25%)', opacity: 0 }
+    { transform: 'translateX(25%)', opacity: 0  }
 ]
 let animationAttributeObjectStart = {
     duration: 300,
-    easing: 'ease-in'
+    easing: 'ease-in',
 }
 let transformArrayFinish = [
-    { transform: 'translateX(25%)', opacity: 0 },
+    { transform: 'translateX(25%)', opacity: 0},
     { transform: 'translateX(0)', opacity: 1 }
 ]
 let animationAttributeObjectFinish = {
     duration: 300,
-    easing: 'ease-out'
+    easing: 'ease-out',
 }
 // modal-content-slide 
 let overlayTransformArrayStart = [

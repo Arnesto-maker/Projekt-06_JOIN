@@ -58,21 +58,11 @@ function convertValueTypDate(string) {
 async function UploadChanges(taskId) {
     let data = sumAllChanges(tasks, taskId)
     await putData(path = `/task/${taskId}`, data = data)
-    resetEditTaskFunc()
     await refreshArray();
-    closeOverlay()
+    await showCardDetails(taskId)
     return
 }
 
-function resetEditTaskFunc() {
-    let assignTo = []
-    let editAssignTo = [];
-    let editPriority = []
-    let category = []
-    let priority = []
-    let subtask = []
-    return
-}
 
 function sumAllChanges(tasks, taskId) {
     const changes = {

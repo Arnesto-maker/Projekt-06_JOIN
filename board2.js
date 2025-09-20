@@ -18,15 +18,54 @@ function showAllCategories() {
 }
 
 async function closeOverlay() {
-    document.querySelector('.overlay').setAttribute('style', 'display:none')
+    await resetContentWithSlide(targetID = 'overlay-content')
     await refreshArray()
 }
 
-function showFloatingAddTask() {
+async function resetContentWithSlide(targetID = '') {
+    const container = document.getElementById(targetID)
+    const slideOutAnimation = container.animate(transformArrayStart, animationAttributeObjectStart, overflowTimer());
+    await slideOutAnimation.finished;
+    document.getElementById(targetID).innerHTML = ''
+    container.animate(transformArrayFinish, animationAttributeObjectFinish);
+    await setTimer(300)
+    container.closest('.overlay').setAttribute('style', 'display:none')
+    return;
+}
+
+async function showFloatingAddTask() {
     document.querySelector('.overlay').setAttribute('style', 'display:flex')
-    document.getElementById('overlay-content').innerHTML = setFloatingAddTask()
+    await switchOverlayContentWithSlide(targetID = 'overlay-content', setFloatingAddTask())
     floatingAddTask__init(contactArray)
     return
+}
+
+async function switchOverlayContentWithSlide(targetID = '', htmlContent) {
+    const container = document.getElementById(targetID)
+    const slideOutAnimation = container.animate(overlayTransformArrayStart, overlayAnimationAttributeObjectStart, overflowTimer());
+    await slideOutAnimation.finished;
+    container.innerHTML = htmlContent
+    container.animate(overlayTransformArrayFinish, overlayAnimationAttributeObjectFinish);
+}
+
+async function overflowTimer() {
+    hideOverflow()
+    await setTimer(600)
+    showOverflow()
+}
+
+async function setTimer(time) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, time)
+    })
+}
+
+function hideOverflow() {
+    document.body.setAttribute('style', 'overflow:hidden')
+}
+
+function showOverflow() {
+    document.body.removeAttribute('style', 'overflow:hidden')
 }
 
 function floatingAddTask__init(contactArray) {
