@@ -295,3 +295,32 @@ function templateEditTask(taskId) {
                 </div>`;
     return template
 }
+
+function setBadgeforCards(tasks, id, target, contacts) {
+    document.getElementById(target).innerHTML = ''
+    if (tasks[id].assignedTo === 'unassigned' || !tasks[id].assignedTo) {
+        document.getElementById(target).innerHTML = 'unassigned'
+    } else if (tasks[id].assignedTo.length > 4) {
+        for (let index = 0; index < 4; index++) {
+            document.getElementById(target).innerHTML += badgeTemplate(tasks[id].assignedTo[index], contacts, index)
+        }
+        document.getElementById(target).innerHTML += badgeTemplateTertiary(tasks, id)
+    } else {
+        for (let index = 0; index < tasks[id].assignedTo.length; index++) {
+            document.getElementById(target).innerHTML += badgeTemplate(tasks[id].assignedTo[index], contacts, index)
+        }
+    }
+    return
+}
+
+function setBadgeforCardsDetailed(tasks, id, target, contacts) {
+    document.getElementById(target).innerHTML = ''
+    if (tasks[id].assignedTo === 'unassigned' || !tasks[id].assignedTo) {
+        document.getElementById(target).innerHTML = 'unassigned'
+    } else {
+        for (let index = 0; index < tasks[id].assignedTo.length; index++) {
+            document.getElementById(target).innerHTML += badgeTemplateSecondary(tasks[id].assignedTo[index], contacts)
+        }
+    }
+    return
+}

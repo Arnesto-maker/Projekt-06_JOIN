@@ -368,27 +368,23 @@ function badgeTemplateSecondary(id, contacts) {
     return template
 }
 
-
-function setBadgeforCards(tasks, id, target, contacts) {
-    document.getElementById(target).innerHTML = ''
-    if (tasks[id].assignedTo === 'unassigned' || !tasks[id].assignedTo) {
-        document.getElementById(target).innerHTML = 'unassigned'
-    } else {
-        for (let index = 0; index < tasks[id].assignedTo.length; index++) {
-            document.getElementById(target).innerHTML += badgeTemplate(tasks[id].assignedTo[index], contacts, index)
-        }
-    }
-    return
+function badgeTemplateTertiary(tasks, id) {
+    let template;
+    const assignedLength = tasks[id].assignedTo.length
+    const notShown = assignedLength - 4
+    const colorNumber = setBadgeColor()
+    const color = `rgba(${colorNumber[0]}, ${colorNumber[1]},${colorNumber[2]}, 1)"`
+    template = `<div class="badge badge4" style="background-color: ${color};">
+                    +${notShown}
+                </div>`
+    return template
 }
 
-function setBadgeforCardsDetailed(tasks, id, target, contacts) {
-    document.getElementById(target).innerHTML = ''
-    if (tasks[id].assignedTo === 'unassigned'|| !tasks[id].assignedTo) {
-        document.getElementById(target).innerHTML = 'unassigned'
-    } else {
-        for (let index = 0; index < tasks[id].assignedTo.length; index++) {
-            document.getElementById(target).innerHTML += badgeTemplateSecondary(tasks[id].assignedTo[index], contacts)
-        }
-    }
-    return
+function setBadgeColor() {
+    const positionR = 183
+    const positionG = 14
+    const positionB = 48
+    return ([positionR, positionG, positionB]);
 }
+
+
