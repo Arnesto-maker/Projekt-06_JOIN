@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summary</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="assets/font.css">
+    <link rel="stylesheet" href="root-summary.css">
+    <link rel="stylesheet" href="summary.css">
+
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="menu-bar">
+            <div class="menu-bar-1">
+                <img src="assets/icon-img/join-main-logo.png" alt="" class="join-logo">
+                <div class="menu">
+                    <div class="menu-points" id="summary">
+                        <img src="assets/icon-img/summary.svg" alt="">
+                        <p>Summary</p>
+                    </div>
+                    <div class="menu-points" id="board">
+                        <img src="assets/icon-img/board.svg" alt="">
+                        <p>Board</p>
+                    </div>
+                    <div class="menu-points" id="addTask">
+                        <img src="assets/icon-img/addTask.svg" alt="">
+                        <p>Add Task</p>
+                    </div>
+                    <div class="menu-points" id="contacts">
+                        <img src="assets/icon-img/perm_contact_calendar.svg" alt="">
+                        <p>Contacts</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu-bar-2">
+                <div>Privacy Policy</div>
+                <div>Legal notice</div>
+            </div>
+        </div>
+        <div class="main-content-body">
+            <div class="content-header">
+                <h1>Kanban Project Management Tool</h1>
+                <div class="user-help-section">
+                    <img src="assets/icon-img/help.svg" alt="">
+                    <div class="user-icon">SM</div>
+                </div>
+            </div>
+            <div class="content-body summary-content">
+                <div class="summary-header">
+                    <img src="assets/icon-img/summary-header-logo.svg" alt="" class="header-logo">
+                </div>
+                <div class="summary-body">
+                    <div class="summary-body-header">
+                        <div class="summary-to-do">
+                            <img src="assets/icon-img/summary-pencil.svg" alt="" class="summary-icon">
+                            <div class="summary-to-do-label">
+                                <div class="number" id="boardToDo">0</div>
+                                <div class="title">
+                                    To-do
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summary-done">
+                            <img src="assets/icon-img/summary-check.svg" alt="" class="summary-icon">
+                            <div class="summary-done-label">
+                                <div class="number" id="boardDone">0</div>
+                                <div class="title">
+                                    Done
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-body-center">
+                        <div class="summary-urgent-and-upcoming-deadline">
+
+                        </div>
+                        <div class="summary-show-user">
+                            <div class="summary-show-user-log-time">
+                                <b>Good morning !</b>
+                            </div>
+                            <div class="summary-show-user-name">
+                                <b>Test User </b>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="summary-body-footer">
+                        <div class="summary-task-in-board">
+                            <div class="number" id="boardNumber">0</div>
+                            <div class="title">
+                                <b>Task in Board</b>
+                            </div>
+                        </div>
+                        <div class="summary-task-in-progress">
+                            <div class="number" id="boardProgress">0</div>
+                            <div class="title">
+                                <b>Task in Progress</b>
+                            </div>
+                        </div>
+                        <div class="summary-awaiting-feedback">
+                            <div class="number" id="boardFeedBack">0</div>
+                            <div class="title">
+                                <b>Awaiting Feedback</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="overlay">
+            <div id="overlay-content"></div>
+        </div>
+</body>
+<script src="script/href-target.js"></script>
+<script src="summary.js"></script>
+
+</html>

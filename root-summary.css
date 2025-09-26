@@ -1,0 +1,11 @@
+:root{
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 16px;
+    --space-l: 32px;
+    --main-color: rgba(42, 54, 71, 1);
+    --main-color-hover: rgba(41, 171, 226, 1);
+    --main-hover-secondary: #a8a8a89c;
+    --main-background: white;
+    --yelow-priority: #FFA800;
+}
