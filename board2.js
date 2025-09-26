@@ -28,7 +28,6 @@ async function resetContentWithSlide(targetID = '') {
     await slideOutAnimation.finished;
     document.getElementById(targetID).innerHTML = ''
     container.animate(transformArrayFinish, animationAttributeObjectFinish);
-    await setTimer(300)
     container.closest('.overlay').setAttribute('style', 'display:none')
     return;
 }

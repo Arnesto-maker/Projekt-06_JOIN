@@ -28,9 +28,11 @@ function getAllInputFieldValue(taskId, tasks) {
 
 function getAllArrayValue(taskId, tasks) {
     editPriority[0] = tasks[taskId].priority
-    if (tasks[taskId].assignedTo) {
+    if ( !(tasks[taskId].assignedTo === 'unassigned')) {
         editAssignTo = tasks[taskId].assignedTo
-    }
+    } else{
+        editAssignTo = []
+    }   
     subtask = editSubtaskArrayTransformation((tasks[taskId].subtask))
     showPriority(editPriority)
     showEditAssigned()

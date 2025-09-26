@@ -124,7 +124,7 @@ async function uploadTask() {
     await postData(path = '/task', data = data)
     await refreshArray()
     closeOverlay()
-    return
+    return 
 }
 
 function priorityExisted(priorityParameter) {

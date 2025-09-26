@@ -4,7 +4,7 @@ async function refreshArray() {
     contactArray = arraySorting(filterPlaceHolderArray(objectToArray(contacts)))
     taskArray = filterPlaceHolderArray(objectToArray(tasks))
     const firstBoardArrays = init__boardArrayParameter(taskArray)
-    getWholeBoard(firstBoardArrays.toDoArray, firstBoardArrays.inProgressArray, firstBoardArrays.awaitFeedbackArray, firstBoardArrays.doneArray)    
+    getWholeBoard(firstBoardArrays.toDoArray, firstBoardArrays.inProgressArray, firstBoardArrays.awaitFeedbackArray, firstBoardArrays.doneArray)
     return
 }
 
@@ -105,7 +105,10 @@ function eventHandlingFltEditTaskPrio() {
 
 function showPriority(editPriority) {
     const containerParent = document.querySelectorAll('.floating-priority')
-    const selectedContainer = document.querySelector(`div[data-priority = ${editPriority[0]}]`)
+    let selectedContainer = document.querySelector(`div[data-priority = ${editPriority[0]}]`)
+    if (!editPriority[0] || editPriority[0] === 'unassigned') {
+        selectedContainer = document.querySelector(`div[data-priority = 'medium']`)
+    }    
     floatingEditPriority(containerParent)
     floatingEditPriorityRemovePathMarking(containerParent)
     floatingEditPrioritySetNewMarking(selectedContainer)

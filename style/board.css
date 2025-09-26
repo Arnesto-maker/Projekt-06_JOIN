@@ -1160,6 +1160,10 @@ input:focus {
     width: 90%;
 }
 
+.plus-button{
+    height: 24px;
+    width: 24px;
+}
 .plus-button:hover{
     cursor: pointer;
 }

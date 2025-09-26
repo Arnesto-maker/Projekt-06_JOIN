@@ -106,6 +106,27 @@ function setTaskObjectDefault() {
     return taskObject
 }
 
+function setTaskObjectDefaultAtSections(columnId) {
+    let taskObject;
+    taskObject = {
+        title: document.getElementById('flt-title-add').value, // validation point 01
+        description: descriptionNone(document.getElementById('flt-desc-text').value),
+        dueDate: document.getElementById('flt-due-date').value.split('-').reverse().join('/'), // validation point 02
+        priority: priorityExisted(priority[0]),
+        assignedTo: contactAssigned(assignTo),
+        category: category[0], // validation point 03
+        subtask: generateSubtask(subtask),
+        status: columnId
+    }
+    if (!floatingAddTaskvalidation(taskObject.title, taskObject.dueDate, taskObject.category)) {
+        return false
+    }
+    return taskObject
+}
+
+
+
+
 function setFloatingAddTask() {
     let template;
     template = `<div class="floating-add-task">
