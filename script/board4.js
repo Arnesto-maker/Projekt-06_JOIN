@@ -194,6 +194,9 @@ function getEditAssignto(id, event) {
 
 function showEditAssigned() {
     document.getElementById('flt-edit-task-assign-output-box').innerHTML = ''
+    if (!editAssignTo) {
+        editAssignTo = []
+    }
     for (let index = 0; index < editAssignTo.length; index++) {
         document.getElementById('flt-edit-task-assign-output-box').innerHTML += setAssignedTo(contacts, editAssignTo[index])
         if (editAssignTo.length === 0) {

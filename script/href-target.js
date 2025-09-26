@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.getElementById('board').addEventListener('click', () => {
-        window.location.href = 'index.html'
+        window.location.href = 'board.html'
     })
 
     document.getElementById('contacts').addEventListener('click', () => {
