@@ -35,6 +35,24 @@
     font-size: 1.25rem;
 }
 
+.summary-body-footer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-l);
+    font-size: 1.25rem;
+}
+
+.summary-body-center {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-l);
+    font-size: 1.25rem;
+}
+
 .summary-to-do-label {
     display: flex;
     flex-direction: column;
@@ -54,15 +72,17 @@
 .summary-to-do {
     display: flex;
     height: 90%;
-    display: flex;
     align-items: center;
     gap: var(--space-l);
     border-radius: 10px;
     padding: var(--space-xs);
     border: 2px solid rgba(0, 0, 0, 0.288);
     transition: all 100ms ease-in-out;
+    width: 16%;
+    justify-content: center;
 }
-.summary-to-do:hover{
+
+.summary-to-do:hover {
     cursor: pointer;
     background-color: var(--main-color);
     color: white;
@@ -72,37 +92,160 @@
 .summary-done {
     display: flex;
     height: 90%;
-    display: flex;
     align-items: center;
     gap: var(--space-l);
     border-radius: 10px;
     padding: var(--space-xs);
     border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 16%;
+    justify-content: center;
 }
 
-.summary-done:hover{
+.summary-done:hover {
     cursor: pointer;
     background-color: var(--main-color);
     color: white;
 }
 
-.summary-body-center {
-    width: 100%;
-    height: 20%;
-    background-color: rgba(179, 255, 0, 0.13);
+.summary-task-in-board {
+    display: flex;
+    height: 90%;
+    align-items: center;
+    gap: var(--space-l);
+    border-radius: 10px;
+    padding: var(--space-xs);
+    border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 9.3%;
+    justify-content: center;
 }
 
-.summary-body-footer {
-    width: 100%;
-    height: 30%;
-    background-color: rgba(21, 0, 255, 0.13);
+.summary-task-in-board:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.summary-task-in-board-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+    width: 108px;
+}
+
+.summary-task-in-progress {
+    display: flex;
+    height: 90%;
+    align-items: center;
+    gap: var(--space-l);
+    border-radius: 10px;
+    padding: var(--space-xs);
+    border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 9.3%;
+    justify-content: center;
+}
+
+.summary-task-in-progress:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.summary-task-in-progress-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+    width: 108px;
+}
+
+.summary-awaiting-feedback {
+    display: flex;
+    height: 90%;
+    align-items: center;
+    gap: var(--space-l);
+    border-radius: 10px;
+    padding: var(--space-xs);
+    border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 9.3%;
+    justify-content: center;
+}
+
+.summary-awaiting-feedback:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.summary-awaiting-feedback-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+    width: 108px;
+    text-align: center;
+}
+
+.summary-urgent-and-upcoming-deadline {
+    display: flex;
+    height: 90%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: var(--space-l);
+    border-radius: 10px;
+    padding: var(--space-xs);
+    border: 2px solid rgba(0, 0, 0, 0.288);
+    width: 36%;
+}
+
+.summary-urgent-and-upcoming-deadline:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
 }
 
 .summary-icon {
     width: calc(2*var(--space-l));
     height: calc(2*var(--space-l));
 }
-.number{
-    font-weight: 400;
+
+.number {
+    font-weight: 700;
     font-size: 2rem;
+}
+
+.type-date {
+    font-size: 1.25rem !important;
+}
+
+.type-label-deadline {
+    font-size: 1rem !important;
+}
+
+.title {
+    text-align: center;
+}
+
+.deadlineDate-and-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.number-and-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-log-in-time{
+    font-size: 3rem !important;
+}
+
+.summary-show-user:hover{
+    cursor: pointer;
 }

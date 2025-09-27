@@ -77,11 +77,24 @@
                     </div>
                     <div class="summary-body-center">
                         <div class="summary-urgent-and-upcoming-deadline">
-
+                            <img src="assets/icon-img/summary-urgency.svg" alt="">
+                            <div class="number-and-label">
+                                <div class="number">0</div>
+                                <div class="title">
+                                    Urgent
+                                </div>
+                            </div>
+                            <img src="assets/icon-img/summary-urgency-deadline-vector.svg" alt="">
+                            <div class="deadlineDate-and-label">
+                                <div class="number type-date">October 16, 2022</div>
+                                <div class="title type-label-deadline">
+                                    Upcoming Deadline
+                                </div>
+                            </div>
                         </div>
                         <div class="summary-show-user">
                             <div class="summary-show-user-log-time">
-                                <b>Good morning !</b>
+                                <b class="user-log-in-time">Good morning !</b>
                             </div>
                             <div class="summary-show-user-name">
                                 <b>Test User </b>
@@ -91,21 +104,27 @@
                     </div>
                     <div class="summary-body-footer">
                         <div class="summary-task-in-board">
-                            <div class="number" id="boardNumber">0</div>
-                            <div class="title">
-                                <b>Task in Board</b>
+                            <div class="summary-task-in-board-label">
+                                <div class="number" id="boardNumber">0</div>
+                                <div class="title">
+                                    Task in board
+                                </div>
                             </div>
                         </div>
                         <div class="summary-task-in-progress">
-                            <div class="number" id="boardProgress">0</div>
-                            <div class="title">
-                                <b>Task in Progress</b>
+                            <div class="summary-task-in-progress-label">
+                                <div class="number" id="boardProgress">0</div>
+                                <div class="title">
+                                    Task in progress
+                                </div>
                             </div>
                         </div>
                         <div class="summary-awaiting-feedback">
-                            <div class="number" id="boardFeedBack">0</div>
-                            <div class="title">
-                                <b>Awaiting Feedback</b>
+                            <div class="summary-awaiting-feedback-label">
+                                <div class="number" id="boardFeedBack">0</div>
+                                <div class="title">
+                                    awaiting feedback
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,5 +138,6 @@
 </body>
 <script src="script/href-target.js"></script>
 <script src="summary.js"></script>
+<script src="script/database.js"></script>
 
 </html>
