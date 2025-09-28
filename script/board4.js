@@ -34,7 +34,13 @@ function init__boardArrayParameter(searchedTask) {
 
 function searchFilterTask(taskArray, searchKey) {
     let searchedTask = taskArray.filter(task => {
-        const filteredTask = task.title.toLowerCase().includes(searchKey)
+        let filterPoint;
+        if (task.title.toLowerCase().includes(searchKey)) {
+            filterPoint = task.title
+        } else{
+            filterPoint = task.priority
+        }
+        const filteredTask = filterPoint.toLowerCase().includes(searchKey)
         return filteredTask
     })
     return searchedTask

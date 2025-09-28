@@ -174,7 +174,6 @@ function showSortedArrayDueDate() {
     if (!sortedArray || sortedArray.length === 0) {
         output = false
     } else {
-        console.log(sortedArray);
         output = sortedArray[0].dueDate
     }
     return output
