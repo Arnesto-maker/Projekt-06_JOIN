@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     summary_init_hoverHandling()
     await getArrayInfoFromBoard()
     showAllBoardInformations()
-    console.log(showSortedArrayDueDate());
-    
+
+
 })
+
 
 function markSectionId(id) {
     document.getElementById(id).classList.add('active')
@@ -61,6 +62,7 @@ function showAllBoardInformations() {
     showAwaitingFeedbackInBoard()
     showUrgentsTasksInBoard()
     showUpcomingDeadline()
+    showUserGreeting()
     return
 }
 
@@ -78,33 +80,41 @@ function showDoneinBoard() {
 
 function showTaskInBoard() {
     const number = document.querySelector('#boardNumber')
-    number.innerHTML= taskArray.length
+    number.innerHTML = taskArray.length
     return
 }
 
 function showInProgressInBoard() {
     const number = document.querySelector('#boardProgress')
-    number.innerHTML= inProgressArray.length
+    number.innerHTML = inProgressArray.length
     return
 }
 
 function showAwaitingFeedbackInBoard() {
     const number = document.querySelector('#boardFeedBack')
-    number.innerHTML= awaitFeedbackArray.length
+    number.innerHTML = awaitFeedbackArray.length
     return
 }
 
 function showUrgentsTasksInBoard() {
     const parent = document.querySelector('.summary-urgent-and-upcoming-deadline')
     const number = parent.querySelector('.number')
-    number.innerHTML= urgentArray.length
+    number.innerHTML = urgentArray.length
     return
 }
 
 function showUpcomingDeadline() {
     const parent = document.querySelector('.deadlineDate-and-label')
-    parent.querySelector('.type-date').innerHTML = showSortedArrayDueDate()
+    parent.querySelector('.type-date').innerHTML = convertFunctionDuedate()
+    return
 }
+
+function showUserGreeting() {
+    const box = document.querySelector('.user-log-in-time');
+    box.innerHTML = getActualTime()
+    return
+}
+
 
 async function getArrayInfoFromBoard() {
     contacts = await getObject('/contacts')
@@ -118,6 +128,17 @@ async function getArrayInfoFromBoard() {
     doneArray = arrayFilter__Sort(searchedTask, 'done')
     urgentArray = arrayFilter__Sort_priority(searchedTask, 'urgent')
     return
+}
+
+function filterDoneStatusAtUrgentTasks(urgentTasks) {
+    const output = urgentTasks.filter(member => {
+        if (member.status === 'done') {
+            return false
+        } else {
+            return true
+        }
+    })
+    return output
 }
 
 function arraySorting(array) {
@@ -147,10 +168,59 @@ function filterUnassignedDueDate(array) {
     return filteredArray
 }
 
-
 function showSortedArrayDueDate() {
-    const sortedArray = arraySorting_dueDate(urgentArray)
-    return sortedArray[0].dueDate
+    let sortedArray = arraySorting_dueDate(filterDoneStatusAtUrgentTasks(urgentArray));
+    let output;
+    if (!sortedArray || sortedArray.length === 0) {
+        output = false
+    } else {
+        console.log(sortedArray);
+        output = sortedArray[0].dueDate
+    }
+    return output
+}
+
+function convertFunctionDuedate() {
+    let output;
+    const dueDateType = showSortedArrayDueDate()
+    if (!dueDateType) {
+        output = `no upcoming deadline`
+    } else {
+        const input = showSortedArrayDueDate().split('/')
+        output = `${convertNumberToMonth(input[1])} ${input[0]}, ${input[2]}`
+    }
+    return output
+}
+
+function convertNumberToMonth(number) {
+    const month = {
+        '01': 'January',
+        '02': 'February',
+        '03': 'March',
+        '04': 'April',
+        '05': 'Mai',
+        '06': 'June',
+        '07': 'July',
+        '08': 'August',
+        '09': 'September',
+        '10': 'October',
+        '11': 'November',
+        '12': 'December'
+    }
+    return month[number]
+}
+
+function getActualTime() {
+    let greeting
+    const time = new Date().getHours()
+    if (time >= 1 && time <= 11) {
+        greeting = 'Good Morning'
+    } else if (time >= 12 && time <= 17) {
+        greeting = 'Good day'
+    } else {
+        greeting = 'Good night'
+    }
+    return `${greeting} !`
 }
 
 function filterPlaceHolderArray(array) {
