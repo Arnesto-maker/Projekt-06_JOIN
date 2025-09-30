@@ -187,6 +187,7 @@
     resize: none;
     border: none;
     font-size: var(--font-m);
+    height: 100%;
 }
 
 .flt-desc-text:focus {

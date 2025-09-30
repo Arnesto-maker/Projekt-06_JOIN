@@ -151,6 +151,9 @@ function arraySorting(array) {
 
 function arraySorting_dueDate(array) {
     const sortedArray = filterUnassignedDueDate(array)
+    sortedArray.forEach(member => {
+        member['dueDate'] = convertDateStrings(member['dueDate'])
+    });
     sortedArray.sort((memberA, memberB) => {
         return memberA.dueDate.localeCompare(memberB.dueDate)
     })
@@ -179,13 +182,26 @@ function showSortedArrayDueDate() {
     return output
 }
 
+function arrayCovertDateStrings(array) {
+    let output = array.forEach(member => {
+        member['dueDate'] = convertDateStrings(member['dueDate'])
+    });
+    return output
+}
+
+function convertDateStrings(strings) {
+    const input = strings
+    return input.split('/').reverse().join('-')
+}
+
+
 function convertFunctionDuedate() {
     let output;
-    const dueDateType = showSortedArrayDueDate()
+    const dueDateType = showSortedArrayDueDate()  
     if (!dueDateType) {
         output = `no upcoming deadline`
     } else {
-        const input = showSortedArrayDueDate().split('/')
+        const input = showSortedArrayDueDate().split('-').reverse()
         output = `${convertNumberToMonth(input[1])} ${input[0]}, ${input[2]}`
     }
     return output
