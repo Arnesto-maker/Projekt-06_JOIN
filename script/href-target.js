@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('summary').addEventListener('click', () => {
-        window.location.href = 'index.html'
+        window.location.href = 'summary.html'
     })
 
     document.getElementById('addTask').addEventListener('click', () => {

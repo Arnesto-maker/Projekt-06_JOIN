@@ -49,7 +49,7 @@
     height: 30%;
     display: flex;
     flex-direction: row;
-    gap: var(--space-l);
+    gap: calc(6*var(--space-l));
     font-size: 1.25rem;
 }
 
@@ -243,7 +243,12 @@
 }
 
 .user-log-in-time{
-    font-size: 3rem !important;
+    font-size: 2rem !important;
+}
+
+.summary-show-user-name{
+    font-size: 3rem ;
+    color: var(--main-color-hover);
 }
 
 .summary-show-user:hover{
