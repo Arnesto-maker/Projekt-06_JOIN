@@ -48,7 +48,7 @@ async function redirectToBoard() {
     if (!check) {
         return
     }
-    await switchContent()
+    //await switchContent() deactivated
     window.location.href = 'board.html'
     return
 }
