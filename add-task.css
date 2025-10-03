@@ -12,7 +12,12 @@
 }
 
 .add-task-section{
-    height: 87vh !important;
+    height: 87% !important;
     padding-bottom: 0 !important;
     padding-top: 0 !important;
 }
+
+.add-task-section-priority{
+    height: max-content !important;
+}
+
