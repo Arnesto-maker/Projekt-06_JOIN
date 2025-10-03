@@ -1,0 +1,18 @@
+.add-task-section-header{
+    height: 16vh !important;
+}
+
+.add-task-section-footer{
+    height: 16vh !important;
+    align-items: center !important;
+}
+
+.add-task-section-body{
+    height: 58vh !important;   
+}
+
+.add-task-section{
+    height: 87vh !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}

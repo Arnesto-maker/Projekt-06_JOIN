@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.getElementById('addTask').addEventListener('click', () => {
-        window.location.href = '#'
+        window.location.href = 'add-task.html'
     })
 
     document.getElementById('board').addEventListener('click', () => {

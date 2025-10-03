@@ -383,9 +383,9 @@
 }
 
 .open {
-    overflow: auto;
+    overflow: auto !important;
     height: 96px;
-    max-height: 160px;
+    max-height: 160px !important;
     border: 1px solid #ccc;
-    opacity: 1;
+    opacity: 1 !important;
 }

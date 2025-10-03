@@ -124,9 +124,6 @@ function setTaskObjectDefaultAtSections(columnId) {
     return taskObject
 }
 
-
-
-
 function setFloatingAddTask() {
     let template;
     template = `<div class="floating-add-task">

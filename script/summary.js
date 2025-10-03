@@ -21,7 +21,6 @@ function markSectionId(id) {
     document.getElementById(id).classList.add('active')
 }
 
-
 function summaryToDoHoverhandling() {
     const hoverBox = document.querySelector('.summary-to-do')
     hoverBox.addEventListener('mouseenter', () => {
